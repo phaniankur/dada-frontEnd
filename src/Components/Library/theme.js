@@ -1,7 +1,7 @@
+/* eslint-disable import/prefer-default-export */
 import {breakpoints} from './breakpoints'
 
-/* eslint-disable import/prefer-default-export */
-export default {
+const theme = {
   breakpoints,
   fonts: {
     body: "Lato",
@@ -20,3 +20,4 @@ export default {
     fadedBlue: "#8ED0E0",
   },
 };
+export default theme
