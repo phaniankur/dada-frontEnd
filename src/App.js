@@ -1,13 +1,19 @@
 import React from 'react';
-//import { HashRouter as Router, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import './App.css';
+import Box from './Components/Library/Box';
+import theme from './Components/Library/theme';
+import DaySale from './Pages/daySale';
 
 function App() {
   return (
-      // <Router>
-      //   <Route />
-      // </Router>
-      <h1 className='App'>Start Here</h1>
+
+    <ThemeProvider theme={theme}>
+      <Box>
+        <DaySale/>
+      </Box>
+
+    </ThemeProvider>
 
   );
 }
