@@ -1,7 +1,7 @@
-/* eslint-disable import/prefer-default-export */
 import {breakpoints} from './breakpoints'
 
-export const theme = {
+/* eslint-disable import/prefer-default-export */
+export default {
   breakpoints,
   fonts: {
     body: "Lato",
