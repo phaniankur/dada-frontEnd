@@ -58,7 +58,7 @@ const DaySale = () => {
             alignItems = 'center'
             flexDirection = 'column'
         >
-            <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center' width='80%'>
+            <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center' width='60%'>
                 <Box fontWeight='bold'>Month:</Box>
                 <select
                 style={{
