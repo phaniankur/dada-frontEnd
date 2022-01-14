@@ -7,7 +7,9 @@ import Button from '../Components/ButtonStyle'
 const DaySale = () => {
     const [moreOptions, setMoreOptions] = useState(false)
     const [staffOptions, setStaffOptions] = useState(false)
+
     const [response, setResponse] = useState('')
+
     const [inputData, setInputData] = useState({
         month: '',
         openDate: '',
@@ -21,7 +23,8 @@ const DaySale = () => {
         gasCost:'',
         gasUseDate: '',
         electricity: '',
-        kirana: ''
+        kirana: '',
+        coal: ''
     })
 
     const handleSubmit =()=>{
@@ -36,6 +39,7 @@ const DaySale = () => {
             Sanjeeb: inputData.sanjeeb,
             chickenPrice: inputData.chickenCost,
             chickenInKG: inputData.chickenKg,
+            coal: inputData.coal,
             dailyExpense: inputData.expense,
             dailySale: inputData.sale,
         }
@@ -148,11 +152,15 @@ const DaySale = () => {
                     }}>Show Staff Options</Box>
                 }
                 <Box
-                display = {staffOptions?'flex': 'none'}
+                transition = 'all 0.5s ease;'
+                display = 'flex'
+                height = {staffOptions? '10rem': '0rem'}
                 flexDirection = 'column'
                 justifyContent = 'center'
                 alignItems = 'center'
-                padding = '0.5rem'
+                paddingLeft= '0.5rem'
+                paddingRight= '0.5rem'
+                overflow = 'hidden'
                 >
                     <Input
 
@@ -171,14 +179,7 @@ const DaySale = () => {
                         (e)=> {setInputData({...inputData, sanjeeb: e.target.value})}
                     }
                     />
-                    <Input
-                    variant = 'blackInput'
-                    placeholder = 'Bou'
-                    value={inputData.kajerBou}
-                    onChange={
-                        (e)=> {setInputData({...inputData, kajerBou: e.target.value})}
-                    }
-                    />
+
                 </Box>
             </Box>
             {
@@ -192,13 +193,13 @@ const DaySale = () => {
             :
             <Box
             as='text'
-            transition= 'width 2s, height 2s, background-color 2s, transform 2s'
             paddingTop = '1rem'
 
             cursor = 'pointer'
             onClick={()=>{
                 setMoreOptions(!moreOptions)
                 setStaffOptions(false)
+
             }}>
                 More
             </Box>
@@ -249,6 +250,14 @@ const DaySale = () => {
                     value={inputData.kirana}
                     onChange={
                         (e)=> {setInputData({...inputData, kirana: e.target.value})}
+                    }
+                    />
+                    <Input
+                    variant = 'blueInput'
+                    placeholder = 'Coal'
+                    value={inputData.coal}
+                    onChange={
+                        (e)=> {setInputData({...inputData, coal: e.target.value})}
                     }
                     />
                 </Box>
