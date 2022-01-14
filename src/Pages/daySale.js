@@ -58,7 +58,7 @@ const DaySale = () => {
             alignItems = 'center'
             flexDirection = 'column'
         >
-            <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center'>
+            <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center' width='80%'>
                 <Box fontWeight='bold'>Month:</Box>
                 <select
                 style={{
@@ -67,7 +67,7 @@ const DaySale = () => {
                     outline: 0,
                     border: "none",
                     width: "100%",
-                    height: "2.5rem",
+                    minHeight: "2.5rem",
                     borderRadius: "16px",
                     margin: '0.25rem',
                     textAlign: 'center',}}
