@@ -43,7 +43,7 @@ const DaySale = () => {
             dailyExpense: inputData.expense,
             dailySale: inputData.sale,
         }
-        console.log(formData)
+
         axios.post('https://git.heroku.com/dadabackend.git/daysale/daily', formData)
         .then(res=>setResponse(res.data))
         .catch(error=> console.log(error))
