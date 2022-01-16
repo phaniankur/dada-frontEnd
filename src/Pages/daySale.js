@@ -3,10 +3,12 @@ import axios from 'axios'
 import Box from '../Components/Library/Box'
 import Input from '../Components/InputStyle'
 import Button from '../Components/ButtonStyle'
+import Loader from '../Components/Loader/Loader'
 
 const DaySale = () => {
     const [moreOptions, setMoreOptions] = useState(false)
     const [staffOptions, setStaffOptions] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const [response, setResponse] = useState('')
 
@@ -44,12 +46,32 @@ const DaySale = () => {
             dailySale: inputData.sale,
         }
         console.log(formData)
-        axios.post('https://git.heroku.com/dadabackend.git/daysale/daily', formData)
-        .then(res=>setResponse(res.data))
-        .catch(error=> console.log(error))
+        setLoading(true)
+        axios.post('https://dadabackend.herokuapp.com/daysale/daily', formData)
+        .then(res=>{
+            setLoading(false)
+            setResponse(res.data)
+        })
+        .catch(error=> {
+            console.log(error)
+            setResponse('Error')
+            setLoading(false)
+        })
     }
     return (
-
+        <>
+        {
+        loading ?
+        <Box
+            height= '100vh'
+            display = 'flex'
+            justifyContent = 'center'
+            alignItems = 'center'
+            flexDirection = 'column'
+        >
+            <Loader/>
+        </Box>
+        :
             response === ''?
             <Box
             height= '100vh'
@@ -57,7 +79,7 @@ const DaySale = () => {
             justifyContent = 'center'
             alignItems = 'center'
             flexDirection = 'column'
-        >
+            >
             <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center' width='60%'>
                 <Box fontWeight='bold'>Month:</Box>
                 <select
@@ -78,6 +100,7 @@ const DaySale = () => {
                 >
                     <option value='jan'>January</option>
                     <option value='feb'>February</option>
+                    <option value='test1'>Test</option>
                     <option></option>
                 </select>
                 <Box fontWeight='bold'>Date:</Box>
@@ -280,7 +303,8 @@ const DaySale = () => {
         justifyContent='center'
         alignItems='center'
         >{response}</Box>
-
+                }
+    </>
 
     )
 }
