@@ -11,7 +11,6 @@ const Input = styled.input(
     margin: '0.25rem',
     textAlign: 'center',
     WebkitAppearance: 'none',
-      margin: 0,
   },
   variant({
     variants: {
