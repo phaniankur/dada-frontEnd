@@ -4,6 +4,7 @@ import Box from '../Components/Library/Box'
 import Input from '../Components/InputStyle'
 import Button from '../Components/ButtonStyle'
 import Loader from '../Components/Loader/Loader'
+import Tick from '../Components/Tick/Tick'
 
 const DaySale = () => {
     const [moreOptions, setMoreOptions] = useState(false)
@@ -45,7 +46,7 @@ const DaySale = () => {
             dailyExpense: inputData.expense,
             dailySale: inputData.sale,
         }
-        console.log(formData)
+
         setLoading(true)
         axios.post('https://dadabackend.herokuapp.com/daysale/daily', formData)
         .then(res=>{
@@ -53,7 +54,7 @@ const DaySale = () => {
             setResponse(res.data)
         })
         .catch(error=> {
-            console.log(error)
+
             setResponse('Error')
             setLoading(false)
         })
@@ -80,7 +81,7 @@ const DaySale = () => {
             alignItems = 'center'
             flexDirection = 'column'
             >
-            <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center' width='60%'>
+            <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center' width={['60%', '20%']}>
                 <Box fontWeight='bold'>Month:</Box>
                 <select
                 style={{
@@ -122,6 +123,7 @@ const DaySale = () => {
                 padding = '0.5rem'
                 >
                     <Input
+                    type='number'
                     variant = 'blackInput'
                     placeholder = 'Expense'
                     value={inputData.expense}
@@ -130,6 +132,7 @@ const DaySale = () => {
                     }
                     />
                     <Input
+                    type='number'
                     variant = 'blackInput'
                     placeholder = 'Sale'
                     value={inputData.sale}
@@ -143,6 +146,7 @@ const DaySale = () => {
                 padding = '0.5rem'
                 >
                     <Input
+                    type='number'
                     variant = 'blueInput'
                     placeholder = 'Chicken Kg'
                     value={inputData.chickenKg}
@@ -151,6 +155,7 @@ const DaySale = () => {
                     }
                     />
                     <Input
+                    type='number'
                     variant = 'blueInput'
                     placeholder = 'Chicken Price'
                     value={inputData.chickenCost}
@@ -186,7 +191,7 @@ const DaySale = () => {
                 overflow = 'hidden'
                 >
                     <Input
-
+                    type='number'
                     variant = 'blackInput'
                     placeholder = 'Firoz'
                     value={inputData.firoz}
@@ -195,6 +200,7 @@ const DaySale = () => {
                     }
                     />
                     <Input
+                    type='number'
                     variant = 'blackInput'
                     placeholder = 'Sanjeeb'
                     value={inputData.sanjeeb}
@@ -237,6 +243,7 @@ const DaySale = () => {
                 padding = '0.5rem'
                 >
                     <Input
+                    type='number'
                     variant = 'blueInput'
                     placeholder = 'Gas Cost'
                     value={inputData.gasCost}
@@ -260,6 +267,7 @@ const DaySale = () => {
                 padding = '0.5rem'
                 >
                     <Input
+                    type='number'
                     variant = 'blueInput'
                     placeholder = 'Electricity'
                     value={inputData.electricity}
@@ -268,6 +276,7 @@ const DaySale = () => {
                     }
                     />
                     <Input
+                    type='number'
                     variant = 'blueInput'
                     placeholder = 'Kirana'
                     value={inputData.kirana}
@@ -276,6 +285,7 @@ const DaySale = () => {
                     }
                     />
                     <Input
+                    type='number'
                     variant = 'blueInput'
                     placeholder = 'Coal'
                     value={inputData.coal}
@@ -297,12 +307,24 @@ const DaySale = () => {
         :
         <Box
         height = '100vh'
-        color='green'
+        color={response === 'Error'? 'red' :'green'}
         fontWeight = 'bold'
         display='flex'
+        flexDirection= 'column'
         justifyContent='center'
         alignItems='center'
-        >{response}</Box>
+        fontSize = '26px'
+        >
+            {response}
+            {
+                response === 'Error'?
+                null
+                :
+                <Tick/>
+            }
+
+            </Box>
+
                 }
     </>
 

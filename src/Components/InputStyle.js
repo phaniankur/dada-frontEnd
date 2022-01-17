@@ -10,6 +10,8 @@ const Input = styled.input(
     borderRadius: "16px",
     margin: '0.25rem',
     textAlign: 'center',
+    WebkitAppearance: 'none',
+      margin: 0,
   },
   variant({
     variants: {

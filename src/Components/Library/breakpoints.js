@@ -1,4 +1,4 @@
-export const breakpoints = ["0", "600px", "1024px", "1280px", "1440px"]
+export const breakpoints = ['40em', '52em', '64em', '80em']
 
 // aliases
 breakpoints.sm = breakpoints[0]

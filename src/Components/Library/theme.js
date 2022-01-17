@@ -2,7 +2,7 @@
 import {breakpoints} from './breakpoints'
 
 const theme = {
-  breakpoints,
+  // breakpoints,
   fonts: {
     body: "Lato",
   },
