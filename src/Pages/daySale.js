@@ -5,6 +5,8 @@ import Input from '../Components/InputStyle'
 import Button from '../Components/ButtonStyle'
 import Loader from '../Components/Loader/Loader'
 import Tick from '../Components/Tick/Tick'
+import Logo from '.././images/dadaLogo.png'
+import { Link } from 'react-router-dom'
 
 const DaySale = () => {
     const [moreOptions, setMoreOptions] = useState(false)
@@ -76,47 +78,61 @@ const DaySale = () => {
             response === ''?
             <Box
             height= '100vh'
-            display = 'flex'
-            justifyContent = 'center'
-            alignItems = 'center'
-            flexDirection = 'column'
+            display='flex'
+            flexDirection='column'
             >
-            <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center' width={['60%', '20%']}>
-                <Box fontWeight='bold'>Month:</Box>
-                <select
-                style={{
-                    backgroundColor: '#2F4858',
-                    color: 'white',
-                    outline: 0,
-                    border: "none",
-                    width: "100%",
-                    minHeight: "2.5rem",
-                    borderRadius: "16px",
-                    margin: '0.25rem',
-                    textAlign: 'center',}}
-                value={inputData.month}
-                onChange={
-                    (e)=> {setInputData({...inputData, month: e.target.value})}
-                }
+                <Box
+                mt='1rem'
+                pr='1rem'
+                display='flex'
+                justifyContent='flex-end'
                 >
+                    {/* <Link to='/dashboard'></Link> */}
+                    <img style={{width: '3rem', height: '3rem'}} src={Logo}/>
+                    {/* <Box fontWeight='bold'>Dashboard</Box> */}
+                </Box>
+                <Box
+                height='100%'
+                display = 'flex'
+                justifyContent = 'center'
+                alignItems = 'center'
+                flexDirection = 'column'>
+                    <Box display = 'flex' flexDirection = 'column' justifyContent='center' alignItems = 'center' width={['60%', '20%']}>
+                    <Box fontWeight='bold'>Month:</Box>
+                    <select
+                    style={{
+                        backgroundColor: '#2F4858',
+                        color: 'white',
+                        outline: 0,
+                        border: "none",
+                        width: "100%",
+                        minHeight: "2.5rem",
+                        borderRadius: "16px",
+                        margin: '0.25rem',
+                        textAlign: 'center',}}
+                    value={inputData.month}
+                    onChange={
+                        (e)=> {setInputData({...inputData, month: e.target.value})}
+                    }
+                    >
                     <option value='jan'>January</option>
                     <option value='feb'>February</option>
                     <option value='test1'>Test</option>
                     <option></option>
                 </select>
                 <Box fontWeight='bold'>Date:</Box>
-                <Input
-                style={{paddingRight: '1rem', backgroundColor : '#2F4858'}}
-                    type='date'
-                    variant = 'blackInput'
-                    placeholder = 'Expense'
-                    value={inputData.openDate}
-                    onChange={
-                        (e)=> {setInputData({...inputData, openDate: e.target.value})}
-                    }
+                    <Input
+                    style={{paddingRight: '1rem', backgroundColor : '#2F4858'}}
+                        type='date'
+                        variant = 'blackInput'
+                        placeholder = 'Expense'
+                        value={inputData.openDate}
+                        onChange={
+                            (e)=> {setInputData({...inputData, openDate: e.target.value})}
+                        }
 
-                />
-            </Box>
+                    />
+                </Box>
             <Box>
                 <Box
                 display = 'flex'
@@ -301,6 +317,8 @@ const DaySale = () => {
             variant = 'button1'
             onClick = {handleSubmit}
             >Save</Button>
+        </Box>
+
 
 
         </Box>
