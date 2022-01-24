@@ -22,7 +22,7 @@ const Dashboard = () => {
       setTotalData(monthTotal.data)
       console.log(totalData);
     }
-  }, [monthTotal]);
+  }, [monthTotal, totalData]);
 
   return (
 

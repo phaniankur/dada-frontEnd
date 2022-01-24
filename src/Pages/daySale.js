@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
 import Box from '../Components/Library/Box'
 import Input from '../Components/InputStyle'
 import Button from '../Components/ButtonStyle'
