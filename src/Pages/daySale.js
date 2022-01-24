@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import Box from '../Components/Library/Box'
 import Input from '../Components/InputStyle'
@@ -7,8 +8,13 @@ import Loader from '../Components/Loader/Loader'
 import Tick from '../Components/Tick/Tick'
 import Logo from '.././images/dadaLogo.png'
 import { Link } from 'react-router-dom'
+import { monthTotalAction, saveDaySaleAction } from '../Redux/baseAction'
+import { SAVE_DAYSALE_RESET } from '../Redux/baseConstant'
 
 const DaySale = () => {
+    const dispatch = useDispatch();
+    const saveDaySale = useSelector((state) => state.saveDaySale);
+
     const [moreOptions, setMoreOptions] = useState(false)
     const [staffOptions, setStaffOptions] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -32,6 +38,22 @@ const DaySale = () => {
         coal: ''
     })
 
+    useEffect(() => {
+        if(saveDaySale && saveDaySale.data && saveDaySale.data.success === true){
+            setLoading(false)
+            setResponse(saveDaySale.data.message)
+        }
+    }, [saveDaySale]);
+
+    useEffect(
+		() => {
+			return () => {
+				dispatch({ type: SAVE_DAYSALE_RESET });
+			};
+		},
+		[ dispatch ]
+	);
+
     const handleSubmit =()=>{
 
         const formData = {
@@ -50,32 +72,17 @@ const DaySale = () => {
         }
 
         setLoading(true)
-        axios.post('https://dadabackend.herokuapp.com/daysale/daily', formData)
-        .then(res=>{
-            setLoading(false)
-            setResponse(res.data)
-        })
-        .catch(error=> {
-
-            setResponse('Error')
-            setLoading(false)
-        })
+        dispatch(saveDaySaleAction(formData))
+        dispatch(monthTotalAction())
     }
     return (
         <>
         {
         loading ?
-        <Box
-            height= '100vh'
-            display = 'flex'
-            justifyContent = 'center'
-            alignItems = 'center'
-            flexDirection = 'column'
-        >
             <Loader/>
-        </Box>
         :
             response === ''?
+
             <Box
             height= '100vh'
             display='flex'
@@ -87,8 +94,10 @@ const DaySale = () => {
                 display='flex'
                 justifyContent='flex-end'
                 >
-                    {/* <Link to='/dashboard'></Link> */}
-                    <img style={{width: '3rem', height: '3rem'}} src={Logo}/>
+                    <Link to='/dashboard'>
+                        <img alt='dashboard_logo' style={{width: '3rem', height: '3rem'}} src={Logo}/>
+                    </Link>
+
                     {/* <Box fontWeight='bold'>Dashboard</Box> */}
                 </Box>
                 <Box
@@ -117,7 +126,8 @@ const DaySale = () => {
                     >
                     <option value='jan'>January</option>
                     <option value='feb'>February</option>
-                    <option value='test1'>Test</option>
+                    <option value='mar'>March</option>
+                    <option value='test'>Test</option>
                     <option></option>
                 </select>
                 <Box fontWeight='bold'>Date:</Box>
@@ -319,8 +329,6 @@ const DaySale = () => {
             >Save</Button>
         </Box>
 
-
-
         </Box>
         :
         <Box
@@ -340,7 +348,9 @@ const DaySale = () => {
                 :
                 <Tick/>
             }
-
+            <Link to='/dashboard'>
+                        Check Dashboard
+            </Link>
             </Box>
 
                 }
