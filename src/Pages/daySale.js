@@ -65,6 +65,7 @@ const DaySale = () => {
             Sanjeeb: inputData.sanjeeb,
             chickenPrice: inputData.chickenCost,
             chickenInKG: inputData.chickenKg,
+            kirana: inputData.kirana,
             coal: inputData.coal,
             dailyExpense: inputData.expense,
             dailySale: inputData.sale,
@@ -134,7 +135,7 @@ const DaySale = () => {
                     style={{paddingRight: '1rem', backgroundColor : '#2F4858'}}
                         type='date'
                         variant = 'blackInput'
-                        placeholder = 'Expense'
+                        placeholder = 'Date'
                         value={inputData.openDate}
                         onChange={
                             (e)=> {setInputData({...inputData, openDate: e.target.value})}
@@ -150,7 +151,7 @@ const DaySale = () => {
                     <Input
                     type='number'
                     variant = 'blackInput'
-                    placeholder = 'Expense'
+                    placeholder = 'Other Expenses'
                     value={inputData.expense}
                     onChange={
                         (e)=> {setInputData({...inputData, expense: e.target.value})}
@@ -227,7 +228,7 @@ const DaySale = () => {
                     <Input
                     type='number'
                     variant = 'blackInput'
-                    placeholder = 'Sanjeeb'
+                    placeholder = 'Yadav Ji'
                     value={inputData.sanjeeb}
                     onChange={
                         (e)=> {setInputData({...inputData, sanjeeb: e.target.value})}
