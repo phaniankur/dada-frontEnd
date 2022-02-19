@@ -19,12 +19,12 @@ export const saveDaySaleAction = (formData) => async (dispatch) => {
 		});
 	}
 };
-export const monthTotalAction = (selectMonth) => async (dispatch) => {
+export const monthTotalAction = (formData) => async (dispatch) => {
 	try {
 		dispatch({ type: MONTH_TOTAL_REQUEST });
 
 		//const { data } = await axios.get('http://localhost:5050/api/total');
-		const { data } = await axios.get('https://dadabackend.herokuapp.com/api/total', selectMonth);
+		const { data } = await axios.post('https://dadabackend.herokuapp.com/api/total', formData);
 
 		dispatch({
 			type: MONTH_TOTAL_SUCCESS,

@@ -17,7 +17,10 @@ const Dashboard = () => {
   useEffect(() => {
     if(selectMonth){
       console.log({selectMonth})
-      dispatch(monthTotalAction(selectMonth))
+      const formData = {
+        month: selectMonth
+      }
+      dispatch(monthTotalAction(formData))
     }
 
   }, [dispatch, selectMonth]);
