@@ -1,7 +1,7 @@
 import axios from "axios";
 import { MONTH_TOTAL_FAIL, MONTH_TOTAL_REQUEST, MONTH_TOTAL_SUCCESS, SAVE_DAYSALE_FAIL, SAVE_DAYSALE_REQUEST, SAVE_DAYSALE_SUCCESS } from "./baseConstant";
 
-export const saveDaySaleAction = (formData) => async (dispatch, getState) => {
+export const saveDaySaleAction = (formData) => async (dispatch) => {
 	try {
 		dispatch({ type: SAVE_DAYSALE_REQUEST });
 
@@ -19,12 +19,12 @@ export const saveDaySaleAction = (formData) => async (dispatch, getState) => {
 		});
 	}
 };
-export const monthTotalAction = (formData) => async (dispatch, getState) => {
+export const monthTotalAction = (selectMonth) => async (dispatch) => {
 	try {
 		dispatch({ type: MONTH_TOTAL_REQUEST });
 
 		//const { data } = await axios.get('http://localhost:5050/api/total');
-		const { data } = await axios.get('https://dadabackend.herokuapp.com/api/total', formData);
+		const { data } = await axios.get('https://dadabackend.herokuapp.com/api/total', selectMonth);
 
 		dispatch({
 			type: MONTH_TOTAL_SUCCESS,
