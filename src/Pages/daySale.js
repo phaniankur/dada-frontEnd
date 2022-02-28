@@ -7,7 +7,7 @@ import Loader from '../Components/Loader/Loader'
 import Tick from '../Components/Tick/Tick'
 import Logo from '.././images/dadaLogo.png'
 import { Link } from 'react-router-dom'
-import { monthTotalAction, saveDaySaleAction } from '../Redux/baseAction'
+import { saveDaySaleAction } from '../Redux/baseAction'
 import { SAVE_DAYSALE_RESET } from '../Redux/baseConstant'
 
 const DaySale = () => {
@@ -73,7 +73,7 @@ const DaySale = () => {
 
         setLoading(true)
         dispatch(saveDaySaleAction(formData))
-        dispatch(monthTotalAction())
+        //dispatch(monthTotalAction())
     }
     return (
         <>

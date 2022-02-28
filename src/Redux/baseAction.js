@@ -5,8 +5,16 @@ export const saveDaySaleAction = (formData) => async (dispatch) => {
 	try {
 		dispatch({ type: SAVE_DAYSALE_REQUEST });
 
+		const config = {
+			headers: {
+				"Access-Control-Allow-Headers": "*",
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Methods": "*",
+			 'Content-Type': 'application/json'
+			 }
+		 }
 		//const { data } = await axios.post('http://localhost:5050/api/daily', formData);
-		const { data } = await axios.post('https://dadabackend.herokuapp.com/api/daily', formData);
+		const { data } = await axios.post('https://dadabackend.herokuapp.com/api/daily', formData, config);
 
 		dispatch({
 			type: SAVE_DAYSALE_SUCCESS,

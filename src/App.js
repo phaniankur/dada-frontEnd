@@ -8,26 +8,12 @@ import DaySale from './Pages/daySale';
 
 function App() {
   return (
-    <>
-    {/* <ThemeProvider theme={theme}>
-      <Box>
-        <DaySale/>
-      </Box>
-    </ThemeProvider> */}
-<ThemeProvider theme={theme}>
-  <Routes>
-      <Route path="/dashboard" element={<Dashboard/>}/>
-      <Route exact path="/" element={<DaySale/>}/>
-    </Routes>
-</ThemeProvider>
-
-
-
-
-
-    </>
-
-
+    <ThemeProvider theme={theme}>
+      <Routes>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route exact path="/" element={<DaySale/>}/>
+        </Routes>
+    </ThemeProvider>
   );
 }
 
