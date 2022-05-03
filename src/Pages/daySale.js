@@ -127,15 +127,15 @@ const DaySale = () => {
                     <option value='jan'>January</option>
                     <option value='feb'>February</option>
                     <option value='mar'>March</option>
-                    <option value='april'>March</option>
-                    <option value='may'>March</option>
-                    <option value='june'>March</option>
-                    <option value='july'>March</option>
-                    <option value='aug'>March</option>
-                    <option value='sept'>March</option>
-                    <option value='oct'>March</option>
-                    <option value='nov'>March</option>
-                    <option value='dec'>March</option>
+                    <option value='april'>April</option>
+                    <option value='may'>May</option>
+                    <option value='june'>June</option>
+                    <option value='july'>July</option>
+                    <option value='aug'>August</option>
+                    <option value='sept'>September</option>
+                    <option value='oct'>October</option>
+                    <option value='nov'>November</option>
+                    <option value='dec'>December</option>
                     <option value='test'>Test</option>
                     <option></option>
                 </select>
